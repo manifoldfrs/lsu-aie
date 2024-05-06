@@ -10,7 +10,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 
-load_dotenv()  # take environment variables from .env.
+load_dotenv()
 
 tg_bot_token = os.getenv("TG_BOT_TOKEN")
 openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))

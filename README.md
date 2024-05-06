@@ -4,6 +4,7 @@
 
 # Install python 3.11.7 with pyenv
 $ pyenv install 3.11.7
+$ pyenv local 3.11.7
 
 # Install poetry
 $ pipx install poetry
