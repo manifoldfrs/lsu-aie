@@ -2,20 +2,21 @@
 ### Step 1
 ################################################################################
 
-import requests
+import os
 import re
 import urllib.request
-from bs4 import BeautifulSoup
+from ast import literal_eval
 from collections import deque
 from html.parser import HTMLParser
 from urllib.parse import urlparse
-import os
-import pandas as pd
-import tiktoken
-import openai
+
 import numpy as np
-from openai.embeddings_utils import distances_from_embeddings, cosine_similarity
-from ast import literal_eval
+import openai
+import pandas as pd
+import requests
+import tiktoken
+from bs4 import BeautifulSoup
+from openai.embeddings_utils import cosine_similarity, distances_from_embeddings
 
 # Regex pattern to match a URL
 HTTP_URL_PATTERN = r"^http[s]{0,1}://.+$"

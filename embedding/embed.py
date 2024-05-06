@@ -1,10 +1,11 @@
-import pandas as pd
 import os
-import tiktoken
-from openai import OpenAI
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from typing import List
+
+import pandas as pd
+import tiktoken
 from dotenv import load_dotenv
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from openai import OpenAI
 
 load_dotenv()
 
@@ -90,7 +91,10 @@ for row in df.iterrows():
 df = pd.DataFrame(shortened, columns=["text"])
 df["n_tokens"] = df.text.apply(lambda x: len(tokenizer.encode(x)))
 
-df['embeddings'] = df.text.apply(lambda x: openai.embeddings.create(
-    input=x, model='text-embedding-ada-002').data[0].embedding)
+df["embeddings"] = df.text.apply(
+    lambda x: openai.embeddings.create(input=x, model="text-embedding-ada-002")
+    .data[0]
+    .embedding
+)
 
 df.to_csv("processed/embeddings.csv")
